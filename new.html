@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CheckList Builder</title>
+</head>
+<body>
+<div id="toolbar">
+	<center>
+	<br><br>
+	<input value="My Checklist" type="text" id="title" id="title">
+<br>
+	<input class="submit_1" value="Change Title" type="submit" onclick="change_name()">
+	<br><br>
+		<input class="text" type="text" id="x">
+		<input class="submit" value="Add" type="submit" onclick="add_item()">
+	</center>
+</div>
+<br>
+<div id="preview">
+	<center>
+		<h1 id="title_preview">My Checklist</h1>
+	</center>
+</div>
+<br>
+<button onclick="print()" class="footer_btn">Print</button>
+<button onclick="html_embed()" class="footer_btn">Html / Embed</button>
+</body>
+<script type="text/javascript">
+	function add_item() {
+		document.getElementById('preview').innerHTML = document.getElementById('preview').innerHTML + 
+		"<center><input type=checkbox>"+document.getElementById('x').value+"</center>";
+	}
+	function change_name() {
+		document.getElementById('title_preview').innerHTML = document.getElementById('title').value;
+	}
+	function html_embed() {
+		prompt("Copy the following Html code. You can insert your checklist on your website.\n \n Ctrl + c or command + c",document.getElementById('preview').innerHTML);
+	}
+	function print() {
+	 var myWindow = window.open("", "Print", "width=2000,height=1000");
+    myWindow.document.write(document.getElementById('preview').innerHTML + "");
+	}
+</script>
+<style type="text/css">
+	#toolbar {
+		width: 1350px;
+		height: 200px;
+		border: 1px solid black;
+		background-color: white
+
+	}
+	#title {
+		border: transparent;
+font-size: 40px;
+text-align: center;
+font-family: Times New Roman;
+font-weight: bold;
+
+	}
+	.text {
+		width: 300px;
+		height: 30px;
+		border: 1px solid black;
+
+	}
+	.submit {
+		width: 100px;
+		height: 34px;
+		border: 1px solid black;
+	}
+	body {
+		background-color: lightgrey;
+	}
+	#preview {
+		width: 1350px;
+		height: 370px;
+		border: 1px solid black;
+		background-color: white;
+	}
+	.submit_1 {
+		width: 480px;
+		height: 50px;
+		border: 1px solid black;
+	}
+	.footer_btn {
+		width: 200px;
+		height: 30px;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+</style>
+</html>
